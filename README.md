@@ -1,7 +1,7 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>ENTER YOUR NAME: SARAVANA KUMAR </H3>
+<H3>ENTER YOUR REGISTER NO: 212222230133</H3>
 <H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>DATE:</H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
@@ -37,11 +37,69 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
-
+```
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
+df=pd.read_csv('Churn_Modelling.csv')
+df.head()
+df.isnull().sum()
+df.duplicated().sum()
+df=df.drop(['Surname', 'Geography','Gender'], axis=1)
+scaler=StandardScaler()
+df1=pd.DataFrame(scaler.fit_transform(df))
+df1.head()
+x=df1.iloc[:,:-1]
+y=df1.iloc[:,-1]
+from sklearn.model_selection import train_test_split as t
+xtrain,xtest,ytrain,ytest=t(x,y,test_size=0.2,random_state=0)
+print("X-train:\n",xtrain,"\n---------------------------------------------------------------------------")
+print("X-test:\n",xtest,"\n---------------------------------------------------------------------------")
+print("Y-train:\n",ytrain,"\n---------------------------------------------------------------------------")
+print("Y-test:\n",ytest,"\n---------------------------------------------------------------------------")
+```
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+
+### Load dataset:
+![image](https://github.com/user-attachments/assets/29d73016-3cc8-4efc-af15-79d0b3822d98)
+
+### Check for null values:
+![image](https://github.com/user-attachments/assets/4b0e2319-f062-46dc-b969-91d95efd5974)
+
+### Check for duplicate values:
+![image](https://github.com/user-attachments/assets/f3bd221d-0adb-4ba7-b4fc-de6ec0e0921f)
+
+### Dropping the unwanted data:
+![image](https://github.com/user-attachments/assets/6ee0d962-fdc0-4e17-ab87-54efaf0410e0)
+
+### Normalizing values:
+![image](https://github.com/user-attachments/assets/fd74f7a6-36e0-44a0-8359-6f30ce2fc73f)
+
+### Splitting the dataset for Model creation:
+![image](https://github.com/user-attachments/assets/624165c5-f135-45e9-9382-890a3e0fe643)
+
+### xtrain:
+![image](https://github.com/user-attachments/assets/83636276-6a46-4ec3-add3-a54e7b9c2e9f)
+
+### xtest:
+![image](https://github.com/user-attachments/assets/87cb2892-ee9e-49d9-873c-7268e0eff828)
+
+### ytrain:
+![image](https://github.com/user-attachments/assets/9e29d0e2-56b3-4474-bac3-4e08dbf3a279)
+
+### ytest:
+![image](https://github.com/user-attachments/assets/11a0a6b2-7d29-494d-b115-bb1b39f2b14e)
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## RESULT:
